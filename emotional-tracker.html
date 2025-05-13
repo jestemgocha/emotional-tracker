@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Emotional Tracking</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      font-family: 'Comic Sans MS', cursive;
+      color: purple;
+    }
+    .emotion {
+      margin: 15px 0;
+    }
+    .label {
+      width: 120px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .circles {
+      display: inline-block;
+    }
+    .circle {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin: 2px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .circle.active {
+      background-color: black;
+    }
+
+    .smutek   { color: #3399ff; }
+    .strach   { color: #0099ff; }
+    .złość    { color: #cc3300; }
+    .agresja  { color: #ff0000; }
+    .wdziecznosc { color: #ffcc00; }
+    .radosc   { color: #ffcc00; }
+  </style>
+</head>
+<body>
+  <h1>Emotional <span style="color:black;">tracking</span></h1>
+  <div id="tracker">
+    <div class="emotion"><span class="label smutek">smutek</span><span class="circles"></span></div>
+    <div class="emotion"><span class="label strach">strach</span><span class="circles"></span></div>
+    <div class="emotion"><span class="label">niepokój</span><span class="circles"></span></div>
+    <div class="emotion"><span class="label">apatia</span><span class="circles"></span></div>
+    <div class="emotion"><span class="label złość">złość</span><span class="circles"></span></div>
+    <div class="emotion"><span class="label agresja">agresja</span><span class="circles"></span></div>
+    <div class="emotion"><span class="label wdziecznosc">wdzięczność</span><span class="circles"></span></div>
+    <div class="emotion"><span class="label radosc">radość</span><span class="circles"></span></div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".circles").forEach(container => {
+      for (let i = 0; i < 31; i++) {
+        const circle = document.createElement("div");
+        circle.classList.add("circle");
+        circle.addEventListener("click", () => {
+          circle.classList.toggle("active");
+        });
+        container.appendChild(circle);
+      }
+    });
+  </script>
+</body>
+</html>
